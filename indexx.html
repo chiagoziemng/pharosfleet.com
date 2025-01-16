@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="We Are Coming Soon! Something exciting is launching. Stay tuned!">
+        <meta name="author" content="Omar and Blasius Technology">
+        <meta name="generator" content="Django">
+        <title>Omar and Blasius Technology</title>
+        <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Omar and Blasius Technology">
+    <meta property="og:description" content="We Are Coming Soon! Something exciting is launching. Stay tuned!">
+    <meta property="og:image" content="https://pharosfleetltd.netlify.app/bg.jpg">
+    <meta property="og:url" content="https://pharosfleetltd.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Omar and Blasius Technology">
+ 
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts (Roboto for text animation) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Animate.css for text animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f7f9fc;
+	  background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .countdown-container {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .countdown-timer span {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f28a2d;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .coming-soon-header {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #007bff;
+    }
+
+    .countdown {
+      margin-top: 30px;
+    }
+
+    .flat-design-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 50px;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .flat-design-btn:hover {
+      background-color: #0056b3;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="content-wrapper">
+    <!-- Header with animated text -->
+    <h1 class="coming-soon-header animate__animated animate__fadeInUp animate__delay-1s">We Are Coming Soon!</h1>
+    <p class="lead animate__animated animate__fadeInUp animate__delay-2s">Something exciting is launching. Stay tuned!</p>
+
+    <!-- Countdown Timer -->
+    <div class="countdown animate__animated animate__fadeInUp animate__delay-3s">
+      <div class="countdown-container" id="countdown">
+        <div class="countdown-timer">
+          <span id="days">00</span> Days 
+          <span id="hours">00</span> Hours 
+          <span id="minutes">00</span> Minutes 
+          <span id="seconds">00</span> Seconds
+        </div>
+      </div>
+    </div>
+
+    <!-- Flat design button -->
+    <button class="flat-design-btn animate__animated animate__fadeInUp animate__delay-4s" onclick="window.location.href='mailto:contact@example.com'">Contact Us</button>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+  <!-- Countdown Timer Script -->
+  <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Jan 1, 2025 00:00:00").getTime();
+
+    // Update the countdown every 1 second
+    var x = setInterval(function() {
+
+      // Get the current date and time
+      var now = new Date().getTime();
+      
+      // Calculate the time remaining
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes, and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the elements with the corresponding IDs
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      // If the countdown is finished, display a message
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Launched!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
